@@ -4,14 +4,15 @@ The initial draft of this is actually been created based on an excellent stackov
 
 # Workflow
 
-In projects in which changes are rapidly changing. It's prudent to utilize a proper workflow so that the tool, git, doesn't become an impediment upon it's team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/), titled, "A successful Git branching model", proposed what now know as the git-flow model.
+In projects in which changes are rapidly changing. It's prudent to utilize a proper workflow so that the tool, git, doesn't become an impediment upon it's team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
 
 ## Gitflow priniciples in a nutshell
 
-* Create temporary feature branches
+* Maintain two branches: `master` and `develop`
+* Create temporary throw-away feature branches
 * The master branch is most stable branch
 * Maintain a `develop` branch where feature branch patches are integrated
-* Tag stable versions in the master branch
+* Tag only stable versions in the master branch
 
 # Merging Standards
 
@@ -76,7 +77,7 @@ The groups can be named whatever you like to match your workflow. Use short noun
 
 Choose short tokens so they do not add too much noise to every one of your branch names. 
 
-Here are some examples:
+*Here are some examples:*
 
 |Prefix   | Use Case                                              |
 |:-------:|-------------------------------------------------------|
@@ -96,13 +97,14 @@ new/foo
 new/bar
 test/foo
 test/frabnotz
-ver/foo
+stage/foo
 ```
 
 *Rational: One can quickly tell which branches have reached each different stage, and you can group them together easily using Git's pattern matching options.*
 
-E.g:
+*For example:*
 
+```
 $ git branch --list "test/*"
 test/foo
 test/frabnotz
@@ -114,6 +116,7 @@ ver/foo
 
 $ gitk --branches="*/foo"
 Use slashes to separate parts
+```
 
 ### Branch name delimiters
 
@@ -137,29 +140,36 @@ Menu:  new/foo   test/foo   ver/foo
 ```
 
 zshell is very configurable about command completion and I could also configure it to handle dashes, underscores or dots the same way. 
-It also lets you search for branches in many git commands, like this:
+It also lets you search for branches in many git commands, like the following:
 
 ```
 git branch --list "feature/*"
 git log --graph --oneline --decorate --branches="feature/*" 
 gitk --branches="feature/*" 
 ```
-Caveat: Slashes can cause problems. Because branches are implemented as paths, you cannot have a branch named "foo" and another branch named "foo/bar". This can be confusing for new users.
+
+*Caveat: Slashes can cause problems. Because branches are implemented as paths, you cannot have a branch named "foo" and another branch named "foo/bar". This can be confusing for new users.*
 
 ### Do not use bare numbers
 
-Do not use use bare numbers (or hex numbers) as part of your branch naming scheme. Inside tab-expansion of a reference name, git may decide that a number is part of a sha-1 instead of a branch name. For example, my issue tracker names bugs with decimal numbers. I name my related branches `CRnnnnn` rather than just `nnnnn` to avoid confusion.
+Do not use use bare numbers (or hex numbers) as part of your branch naming scheme. Inside tab-expansion of a reference name, git may decide that a number is part of a sha-1 instead of a branch name. For example, an issue tracker uses names and bugs with decimal numbers. I name my related branches `CRnnnnn` rather than just `nnnnn` to avoid confusion.
 
 ```
 $ git checkout CR15032<TAB>
 Menu:   fix/CR15032    test/CR15032
 ```
 
-If I tried to expand just 15032, git would be unsure whether I wanted to search SHA-1's or branch names, and my choices would be somewhat limited.
-
+If one tried to expand just 15032, git would be unsure whether I wanted to search SHA-1's or branch names, and my choices would be somewhat limited.
 
 ## Avoid long descriptive names
 
 Long branch names can be very helpful when you are looking at a list of branches. However,it can get in the way when looking at decorated one-line logs as the branch names can eat up most of the single line and abbreviate the visible part of the log.
 
 On the other hand long branch names can be more helpful in "merge commits" if you do not habitually rewrite them by hand. The default merge commit message is Merge branch 'branch-name'. You may find it more helpful to have merge messages show up as Merge branch `'fix/CR15032/crash-when-unformatted-disk-inserted'` instead of just Merge branch `'fix/CR15032'`.
+
+
+# Versioning
+
+Utilize [semantic versioning](http://semver.org/) for your releases.
+
+Utilize tagging when possible. Tags should only pertain to stable production releases.
