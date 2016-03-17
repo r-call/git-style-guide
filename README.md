@@ -6,9 +6,47 @@ The initial draft of this is actually been created based on an excellent stackov
 
 In projects in which changes are rapidly changing. It's prudent to utilize a proper workflow so that the tool, git, doesn't become an impediment upon it's team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/), titled, "A successful Git branching model", proposed what now know as the git-flow model.
 
+## Gitflow priniciples in a nutshell
+
+* Create temporary feature branches
+* The master branch is most stable branch
+* Maintain a `develop` branch where feature branch patches are integrated
+* Tag stable versions in the master branch
+
 # Merging Standards
 
+## Keep your git history linear
+
+When merging it often creates a multi-dimensional history of what is created or amended. It is ideal to keep your git history linear:
+
+*Not Recommended:*
+```
+* Merge branch 'dev' of \var\foo\ into dev
+| \
+|  \    4e223   More Tweaks
+|  * |  3f091   Bug fix foo.
+*  | /  4e123   Tweak
+| /   a1234   Another commit
+*  bc234   Initial commit
+```
+
+*Recommended:*
+
+```
+* 4e223   More Tweaks
+* 3f091   Bug fix foo.
+* 4e123   Tweak
+* a1234   Another commit
+* bc234   Initial commit
+```
+
+### Option A: When merging create a commit object
+
 When doing merge requests it is best to utilize the --no-ff argument. This forces the creation of a commit object. This allows the author and it's reviewers to see each individual commit.
+
+### Option B: Rebase your branch before merging it back in
+
+Rebasing allows you to place your deltas on to of the existing branch you're merging in.
 
 # Naming
 
