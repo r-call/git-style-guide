@@ -2,6 +2,14 @@
 
 The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
+# Workflow
+
+In projects in which changes are rapidly changing. It's prudent to utilize a proper workflow so that the tool, git, doesn't become an impediment upon it's team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/), titled, "A successful Git branching model", proposed what now know as the git-flow model.
+
+# Merging Standards
+
+When doing merge requests it is best to utilize the --no-ff argument. This forces the creation of a commit object. This allows the author and it's reviewers to see each individual commit.
+
 # Naming
 
 ## Branch naming conventions
