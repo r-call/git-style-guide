@@ -1,20 +1,17 @@
 # Introduction
 
-The initial draft of this is actually been created based on an excellent stackoverflow answer, [git branch naming best practices](http://stackoverflow.com/a/6065944/171217).
-
+The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
 # Naming
 
-## Repositories
+## Branch naming conventions
 
-Branch naming conventions
-
-Use grouping tokens (words) at the beginning of your branch names.
-Define and use short lead tokens to differentiate branches in a way that is meaningful to your workflow.
-Use slashes to separate parts of your branch names.
-Do not use bare numbers as leading parts.
-Avoid long descriptive names for long-lived branches.
-Group tokens
+* Use grouping tokens (words) at the beginning of your branch names.
+* Define and use short lead tokens to differentiate branches in a way that is meaningful to your workflow.
+* Use slashes to separate parts of your branch names.
+* Do not use bare numbers as leading parts. 
+* Avoid long descriptive names for long-lived branches.
+* Group tokens
 
 Use "grouping" tokens in front of your branch names.
 
@@ -27,7 +24,7 @@ group3/bar
 group1/baz
 ```
 
-The groups can be named whatever you like to match your workflow. I like to use short nouns for mine. Read on for more clarity.
+The groups can be named whatever you like to match your workflow. Use short nouns. Read on for more clarity.
 
 ## Short well-defined tokens
 
@@ -56,7 +53,9 @@ test/frabnotz
 ver/foo
 ```
 
-You can quickly tell which branches have reached each different stage, and you can group them together easily using Git's pattern matching options.
+*Rational: One can quickly tell which branches have reached each different stage, and you can group them together easily using Git's pattern matching options.*
+
+E.g:
 
 $ git branch --list "test/*"
 test/foo
@@ -70,7 +69,9 @@ ver/foo
 $ gitk --branches="*/foo"
 Use slashes to separate parts
 
-You may use most any delimiter you like in branch names, but I find slashes to be the most flexible. You might prefer to use dashes or dots. But slashes let you do some branch renaming when pushing or fetching to/from a remote.
+### Branch name delimiters
+
+* Use any delimiter you like in branch names. However, slashes tend to be the most flexible: Use dashes or dots, slashes let you do some branch renaming when pushing or fetching to/from a remote.
 
 ```
 $ git push origin 'refs/heads/feature/*:refs/heads/phord/feat/*'
@@ -88,6 +89,7 @@ Menu:  new/frabnotz   new/foo   new/bar
 $ git checkout foo<TAB>
 Menu:  new/foo   test/foo   ver/foo
 ```
+
 zshell is very configurable about command completion and I could also configure it to handle dashes, underscores or dots the same way. 
 It also lets you search for branches in many git commands, like this:
 
@@ -98,7 +100,7 @@ gitk --branches="feature/*"
 ```
 Caveat: Slashes can cause problems. Because branches are implemented as paths, you cannot have a branch named "foo" and another branch named "foo/bar". This can be confusing for new users.
 
-**Do not use bare numbers**
+### Do not use bare numbers
 
 Do not use use bare numbers (or hex numbers) as part of your branch naming scheme. Inside tab-expansion of a reference name, git may decide that a number is part of a sha-1 instead of a branch name. For example, my issue tracker names bugs with decimal numbers. I name my related branches `CRnnnnn` rather than just `nnnnn` to avoid confusion.
 
@@ -106,6 +108,7 @@ Do not use use bare numbers (or hex numbers) as part of your branch naming schem
 $ git checkout CR15032<TAB>
 Menu:   fix/CR15032    test/CR15032
 ```
+
 If I tried to expand just 15032, git would be unsure whether I wanted to search SHA-1's or branch names, and my choices would be somewhat limited.
 
 
