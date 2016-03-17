@@ -1,6 +1,7 @@
 # Introduction
 
-Git standards that i've created along the way. These follow enterprise best practices that i've learned over the years.
+The initial draft of this is actually been created based on an excellent stackoverflow answer, (git branch naming best practices)[http://stackoverflow.com/a/6065944/171217].
+
 
 # Naming
 
