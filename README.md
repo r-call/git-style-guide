@@ -4,7 +4,7 @@ The initial draft of this is actually been created based on an excellent stackov
 
 # Workflow
 
-In projects in which changes are rapidly changing. It's prudent to utilize a proper workflow so that the tool, git, doesn't become an impediment upon it's team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
+In projects in which patches are numerous and quickly generated, it's prudent to utilize a proper workflow. In doing so it'll prevent git from becoming an impediment upon the team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
 
 ## Gitflow priniciples in a nutshell
 
@@ -127,7 +127,7 @@ $ git push origin 'refs/heads/feature/*:refs/heads/phord/feat/*'
 $ git push origin 'refs/heads/bug/*:refs/heads/review/bugfix/*'
 ```
 
-Slashes also work better for tab expansion (or command completion) in a shell. This allows easy searching with the TAB key. Zsh then gives me a list of branches which match the part of the token I have typed. This works for preceding tokens as well as embedded ones.
+Slashes also work better for tab expansion (or command completion) in a shell. This allows easy searching with the <kbd>TAB</kbd> key. Zsh then gives me a list of branches which match the part of the token I have typed. This works for preceding tokens as well as embedded ones.
 
 ```
 $ git checkout new<TAB>
