@@ -3,13 +3,14 @@
 
 * [Introduction](#intro)
 * [Workflow](#workflow)
-* [Naming](#naming)
 * [Merging Standards](#merging-standards)
+* [Naming](#naming)
 
+[Back to the top](#toc)
 <hr />
+
 <a id="intro" rel="bookmark"></a>
 # Introduction
-
 
 The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
@@ -29,6 +30,7 @@ This guide is intended to help newcomers understand git quickly and quickly adop
 
 [Back to the top](#toc)
 <hr />
+
 <a id="workflow" rel="bookmark"></a>
 # Workflow
 
@@ -49,7 +51,7 @@ In projects in which patches are numerous and quickly generated, it's prudent to
 
 ## Keep your git history linear
 
-When merging it often creates a multi-dimensional history of what is created or amended. It is ideal to keep your git history linear:
+When merging git has a proclivity to create a multi-dimensional history of what is created or amended. It is ideal to keep your git history linear.
 
 *Not Recommended:*
 ```
@@ -74,7 +76,11 @@ When merging it often creates a multi-dimensional history of what is created or 
 
 ### Option A: When merging create a commit object
 
-When doing merge requests it is best to utilize the --no-ff argument. This forces the creation of a commit object. This allows the author and it's reviewers to see each individual commit.
+When doing merge requests it is best to utilize the `--no-ff` argument. 
+```
+$ git merge --no-ff dev
+```
+This forces the creation of a commit object. This allows the author and it's reviewers to see each individual commit.
 
 ### Option B: Rebase your branch before merging it back in
 
@@ -82,6 +88,7 @@ Rebasing allows you to place your deltas onto an existing branch you're merging 
 
 [Back to the top](#toc)
 <hr />
+
 <a id="naming"></a>
 # Naming
 
@@ -94,7 +101,9 @@ Rebasing allows you to place your deltas onto an existing branch you're merging 
 * Avoid long descriptive names for long-lived branches.
 * Group tokens
 
-Use "grouping" tokens in front of branch names.
+### Grouping
+
+Use "grouping" tokens in front of branch names. The groups can be named appropriately to match one's workflow.
 
 ```
 group1/foo
@@ -105,13 +114,11 @@ group3/bar
 group1/baz
 ```
 
-The groups can be named whatever you like to match your workflow. Use short nouns. Read on for more clarity.
-
 ## Short well-defined tokens
 
-Choose short tokens so they do not add too much noise to every one of your branch names. 
+Use short nouns. Choose short tokens so they do not add too much noise to every one of your branch names. 
 
-*Here are some examples:*
+**Examples:**
 
 |Prefix   | Use Case                                              |
 |:-------:|-------------------------------------------------------|
