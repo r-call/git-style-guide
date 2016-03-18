@@ -1,19 +1,32 @@
+<a id="toc" rel="bookmark"></a>
+# Table of Contents
+
+* [Introduction](#intro)
+* [Workflow](#workflow)
+* [Merging Standards](#merging-standards)
+
+<hr />
 # Introduction
+<a id="intro" rel="bookmark"></a>
 
 The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
 ## Similar guides
 
-Here are some in which i've taken inspiration from.
+Here are some in which i've taken inspiration from and deserver attribution.
 
 * [https://github.com/agis-/git-style-guide](https://github.com/agis-/git-style-guide)
+* [https://github.com/thoughtbot/guides/tree/master/protocol/git](https://github.com/thoughtbot/guides/tree/master/protocol/git)
 
 ## Purpose
-My intention and purpose is for the community to grow and discuss best practices regarding git. This is by no means the authoritative document. This is another group of opinionated views on how one should use git. 
+My intention and purpose is for the community to grow and discuss best practices germane to git. This is by no means the authoritative document. This is another potpurri of opinionated views on how one should use or maintain git. 
 
 This guide is also a means of newcomers to understand git quickly and learn from some of the things people have learned along the way.
 
+[Back to the top](#toc)
+<hr />
 # Workflow
+<a id="workflow" rel="bookmark"></a>
 
 In projects in which patches are numerous and quickly generated, it's prudent to utilize a proper workflow. In doing so it'll prevent git from becoming an impediment upon the team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
 
@@ -25,7 +38,10 @@ In projects in which patches are numerous and quickly generated, it's prudent to
 * Maintain a `develop` branch where feature branch patches are integrated
 * Tag only stable versions in the master branch
 
+[Back to the top](#toc)
+<hr />
 # Merging Standards
+<a id="merging-standards"></a>
 
 ## Keep your git history linear
 
@@ -58,8 +74,10 @@ When doing merge requests it is best to utilize the --no-ff argument. This force
 
 ### Option B: Rebase your branch before merging it back in
 
-Rebasing allows you to place your deltas on to of the existing branch you're merging in.
+Rebasing allows you to place your deltas onto an existing branch you're merging in.
 
+[Back to the top](#toc)
+<hr />
 # Naming
 
 ## Branch naming conventions
@@ -71,7 +89,7 @@ Rebasing allows you to place your deltas on to of the existing branch you're mer
 * Avoid long descriptive names for long-lived branches.
 * Group tokens
 
-Use "grouping" tokens in front of your branch names.
+Use "grouping" tokens in front of branch names.
 
 ```
 group1/foo
@@ -170,17 +188,25 @@ $ git checkout CR15032<TAB>
 Menu:   fix/CR15032    test/CR15032
 ```
 
-If one tried to expand just 15032, git would be unsure whether I wanted to search SHA-1's or branch names, and my choices would be somewhat limited.
+If one tried to expand just 15032, git would be unsure whether one wanted to search SHA-1's or branch names, and one's choices would be somewhat limited.
 
 ## Avoid long descriptive names
 
-Long branch names can be very helpful when you are looking at a list of branches. However,it can get in the way when looking at decorated one-line logs as the branch names can eat up most of the single line and abbreviate the visible part of the log.
+Long branch names can be very helpful when looking at a list of branches. However, it can get in the way when looking at decorated one-line logs as the branch names can eat up most of the single line and abbreviate the visible part of the log.
 
 On the other hand long branch names can be more helpful in "merge commits" if you do not habitually rewrite them by hand. The default merge commit message is Merge branch 'branch-name'. You may find it more helpful to have merge messages show up as Merge branch `'fix/CR15032/crash-when-unformatted-disk-inserted'` instead of just Merge branch `'fix/CR15032'`.
 
-
+[Back to the top](#toc)
+<hr />
 # Versioning
+<a id="versioning"></a>
 
 Utilize [semantic versioning](http://semver.org/) for your releases.
 
+*Why?*
+* Semantic versioning allows consistency and understanding what type of releases are being produced.
+
 Utilize tagging when possible. Tags should only pertain to stable production releases.
+
+*Why?*
+* Development among larger teams usually means instability of code. It's important to tag important releases for distribution of code to external sources.
