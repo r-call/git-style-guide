@@ -2,6 +2,17 @@
 
 The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
+## Similar guides
+
+Here are some in which i've taken inspiration from.
+
+* [https://github.com/agis-/git-style-guide](https://github.com/agis-/git-style-guide)
+
+## Purpose
+My intention and purpose is for the community to grow and discuss best practices regarding git. This is by no means the authoritative document. This is another group of opinionated views on how one should use git. 
+
+This guide is also a means of newcomers to understand git quickly and learn from some of the things people have learned along the way.
+
 # Workflow
 
 In projects in which patches are numerous and quickly generated, it's prudent to utilize a proper workflow. In doing so it'll prevent git from becoming an impediment upon the team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
