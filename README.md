@@ -6,7 +6,6 @@
 * [Merging Standards](#merging-standards)
 * [Naming](#naming)
 
-[Back to the top](#toc)
 <hr />
 
 <a id="intro" rel="bookmark"></a>
