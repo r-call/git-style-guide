@@ -11,11 +11,11 @@
 <a id="intro" rel="bookmark"></a>
 # Introduction
 
-The initial draft of this is actually been created based on an excellent stackoverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
+The initial draft of this is actually been created based on an excellent StackOverflow answer, "[git branch naming best practices](http://stackoverflow.com/a/6065944/171217)".
 
 ## Similar guides
 
-Here are some in which i've taken inspiration from and deserver attribution.
+Here are some in which I've taken inspiration from and deserve attribution.
 
 * [https://github.com/agis-/git-style-guide](https://github.com/agis-/git-style-guide)
 * [https://github.com/thoughtbot/guides/tree/master/protocol/git](https://github.com/thoughtbot/guides/tree/master/protocol/git)
@@ -33,7 +33,7 @@ This guide is intended to help newcomers understand git quickly and quickly adop
 <a id="workflow" rel="bookmark"></a>
 # Workflow
 
-In projects in which patches are numerous and quickly generated, it's prudent to utilize a proper workflow. In doing so it'll prevent git from becoming an impediment upon the team. Vincent Driessen discussed, in 2010 in [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", proposed what now know as *git-flow model*.
+In projects in which patches are numerous and quickly generated, it's prudent to utilize a proper workflow. In doing so it'll prevent git from becoming an impediment upon the team. Vincent Driessen in 2010 wrote [a seminal article](http://nvie.com/posts/a-successful-git-branching-model/) titled, "A successful Git branching model", and described what now know as *git-flow model*.
 
 ## Gitflow priniciples in a nutshell
 
@@ -129,7 +129,7 @@ Use short nouns. Choose short tokens so they do not add too much noise to every 
 
 Each of these tokens can be used to tell you to which part of your workflow each branch belongs.
 
-It sounds like you have multiple branches for different cycles of a change. I do not know what your cycles are, but let's assume they are 'new', 'testing' and 'verified'. You can name your branches with abbreviated versions of these tags, always spelled the same way, to both group them and to remind you which stage you're in.
+Suppose you have different stages for each change you call 'new', 'testing' and 'verified'. You can name your branches with abbreviated versions of these tags, always spelled the same way, to both group them and to remind you which stage you're in.
 
 ```
 new/frabnotz
@@ -137,10 +137,10 @@ new/foo
 new/bar
 test/foo
 test/frabnotz
-stage/foo
+ver/foo
 ```
 
-*Rational: One can quickly tell which branches have reached each different stage, and you can group them together easily using Git's pattern matching options.*
+*Rationale: One can quickly tell which branches have reached each different stage, and you can group them together easily using Git's pattern matching options.*
 
 *For example:*
 
@@ -160,7 +160,7 @@ Use slashes to separate parts
 
 ### Branch name delimiters
 
-* Use any delimiter you like in branch names. However, slashes tend to be the most flexible: Use dashes or dots, slashes let you do some branch renaming when pushing or fetching to/from a remote.
+* Use any delimiter you like in branch names. However, slashes tend to be the most flexible. You might prefer to use dashes or dots. But slashes let you do some branch renaming when pushing or fetching to/from a remote.
 
 ```
 $ git push origin 'refs/heads/feature/*:refs/heads/phord/feat/*'
@@ -218,7 +218,7 @@ Utilize [semantic versioning](http://semver.org/) for your releases.
 *Why?*
 * Semantic versioning allows consistency and understanding what type of releases are being produced.
 
-Utilize tagging when possible. Tags should only pertain to stable production releases.
+Utilize tagging where appropriate. Tags should be used to mark the specific commit used to produce distributed components.  For example some external system which requires traceability of distributed products for code signing or license verification may demand to know which commit was used to produce the distribution.
 
 *Why?*
-* Development among larger teams usually means instability of code. It's important to tag important releases for distribution of code to external sources.
+* Development among larger teams usually means instability of code. It's important to tag the source of every distributed build result so problems can be understood and included features or bugs can be accurately reported in the future.
