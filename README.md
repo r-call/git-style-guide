@@ -3,8 +3,8 @@
 
 * [Introduction](#intro)
 * [Workflow](#workflow)
-* [Merging Standards](#merging-standards)
 * [Naming](#naming)
+* [Merging Standards](#merging-standards)
 
 <hr />
 
